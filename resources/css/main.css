@@ -1,0 +1,38 @@
+body, html{
+	height:100%;
+	font-family: "Segoe UI";
+}
+.bg {
+/* 	background-image: url('/resources/images/bg.jpg');
+background-repeat: repeat;
+background-attachment: fixed; */
+	background-color: #141b29;
+
+}
+
+nav ul li a {
+	color: white!important;
+}
+.main-input{
+	border: 11px solid #595c61;
+	padding: 10px;
+	font-size: 17px;
+	background-color: #141b29;
+	color: #babdc2;
+	text-align: center;
+}
+.main-input:focus{
+	outline: none;
+
+}
+#get-button:hover{
+	border-color: #445269; 
+	color: white;
+}
+#lab {
+	background-color: #445269;
+	color:white;
+} 
+svg{
+	color:red;
+}
