@@ -1,5 +1,5 @@
 # Youtube-Downloader 
-Youtube Downloader is php script for downloading videos from youtube
+Youtube Downloader is php script for downloading videos from youtube for windows plateforme , it's just a simple exercise
 
 # Installation
 1. Clone the repository to your folder for example 'xampp/htdocs/'
