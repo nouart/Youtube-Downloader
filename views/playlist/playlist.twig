@@ -1,0 +1,9 @@
+{% extends 'default.twig' %}
+{% block content %}
+	<div>
+		<form action="getplaylist.php">
+			<input type="text" class="main-input" name="url" placeholder="Enter a playlist URL..." style="width:500px; max-width:80%;">
+			<input type="submit" value="Get Playlist" class="main-input" id="get-button">
+		</form>
+	</div>
+{% endblock %}

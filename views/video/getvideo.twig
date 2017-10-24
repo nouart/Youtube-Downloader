@@ -1,0 +1,115 @@
+{% extends 'default.twig' %}
+{% block content %}
+	<div class="row" style="text-align: center;" center>
+		<form action="getvideo.php">
+			<input type="text" class="main-input" name="url" placeholder="Enter a video URL..." style="width:500px; max-width:80%;">
+			<input type="submit" value="Get Video" class="main-input" id="get-button">
+		</form>
+	</div>
+	<br>	
+	<div class="container" id="video" style="color:white; max-width:900px;">
+		<div style="padding:20px; border-raduis:2px; border:1px solid rgb(255,255,255, .25);">
+				<div style="text-align:left;">
+					<div class="row">
+						<div class="embed-responsive ">
+							  <iframe class="embed-responsive-item" src="{{ format.url }}"></iframe>
+						</div>
+					</div>
+					<div class="row">
+							<div class="col-md-3" >
+								<!-- thumbnail -->
+									<img src="{{ video.thumbnail }}" alt="{{ video.title }}" style="max-width:400px;">
+							</div>
+							
+							<form class="" >
+							<div class="form-group">
+								<label  class="col-sm-2 col-sm-offset-4 control-label ">Channel</label>
+								<div class="col-xs-2">
+									<label  id="lab" class="form-control lab"><a href="{{ video.uploader_url }}">{{ video.uploader }}</a></label>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-sm-offset-4 control-label">Views</label>
+								<div class="col-xs-2 ">
+									<label id="lab" class="form-control lab" placeholder="Password">{{ video.views }} </label>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-sm-offset-4 control-label">Duration</label>
+								<div class="col-xs-2 ">
+									<label id="lab" class="form-control lab"  placeholder="Password">{{ video.duration }}</label>
+								</div>
+							</div>
+						</form>
+
+						<div class="row col-md-12">
+							<h2 style="font-weight:100;text-align:left; padding-left:10px; color:#;"> {{ video.title }}</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<!-- Download Links -->
+						<div class=" row col-md-10">
+							<select class="form-control">
+								{% for format in formats %}
+										  <option>
+										  	<td>{{format.extension }} </td>
+											<td>{{format.additional }} </td>
+											<td>
+												{% if format.video %}
+													Video
+												{% endif %}
+												{% if format.audio %}
+													Audio
+												{% endif %}
+												{% if format.video and fomrat.audio %}
+													Video-Audio
+												{% endif %}
+											</td>	
+											<td>
+										  </option>
+										
+								{% endfor %}
+										</select>
+										<tr><a href="{{ format.url }}" class="btn btn-success dl-link" target="_blank" download="{{format.title}}">Download</a>
+						</div>
+						    <table class="table">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Extension</th>
+										<th>Size</th>
+										<th>Type</th>
+										<th>Download</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for format in formats %}
+
+											<th scope="row"></th>
+											<td>{{format.extension }} </td>
+											<td>{{format.additional }} </td>
+											<td>
+												{% if format.video %}
+													Video
+												{% endif %}
+												{% if format.audio %}
+													Audio
+												{% endif %}
+												{% if format.video and fomrat.audio %}
+													Video-Audio
+												{% endif %}
+											</td>	
+											<td><a href="{{ format.url }}" class="btn btn-success dl-link" target="_blank" download="{{format.title}}">Download</a></td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+{% endblock %}
